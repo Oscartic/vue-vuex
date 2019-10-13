@@ -56,9 +56,20 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-
+    SET_QUERY (state, query) {
+      state.filter.query = query;
+    },
+    SET_AVAILABLE (state) {
+      state.filter.query = !state.filter.query
+    }
   },
-  actions: {
-
+  getters: {
+    filteredMovies (state) {
+      let movies = state.movies.filter( movie => movie.available === state.filter.availables);
+      if ( state.filter.query.length > 2 ) {
+        return movies.filter(movie => movie.title.toLowerCase().includes(state.filter.query));
+      }
+      return movies;
+    }
   }
 })
