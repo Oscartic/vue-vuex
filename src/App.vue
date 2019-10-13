@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-   
+    <div class="container text-center">
+      <movies-app></movies-app>
+    </div>
   </div>
 </template>
 
 <script>
 
+  import MoviesApp from './components/MoviesApp';
+  export default {
+    name: 'app',
+    components: {
+      MoviesApp
+    }
 
-export default {
-  name: 'app'
-  
 }
 </script>

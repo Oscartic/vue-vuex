@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class:"col">
+        <div class="col">
             <div class="form-group mb-2">
               <label for="sr-only">Escriba su busqueda</label>
               <input type="text" v-model="search" class="form-control" />
@@ -32,10 +32,10 @@ export default {
         },
         available: {
             get () {
-                return this.$stroe.state.filter.available;
+                return this.$store.state.filter.available;
             },
             set () {
-                return this.commit('SET_QUERY');
+                this.$store.commit('SET_AVAILABLE');
             }
         }
     }

@@ -60,12 +60,12 @@ export default new Vuex.Store({
       state.filter.query = query;
     },
     SET_AVAILABLE (state) {
-      state.filter.query = !state.filter.query
+      state.filter.available = ! state.filter.available;
     }
   },
   getters: {
     filteredMovies (state) {
-      let movies = state.movies.filter( movie => movie.available === state.filter.availables);
+      let movies = state.movies.filter( movie => movie.available === state.filter.available);
       if ( state.filter.query.length > 2 ) {
         return movies.filter(movie => movie.title.toLowerCase().includes(state.filter.query));
       }
